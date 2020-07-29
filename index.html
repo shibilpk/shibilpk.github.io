@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="css/iconfont.css" type="text/css" />
 	<script src="js/jquery.min.js" type="text/javascript"></script>
 	<script src="js/script.js" type="text/javascript"></script>
+	<script src="js/typing.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -94,7 +95,7 @@
 				<div class="image">
 					<img src="images/shibilpk.jpg" alt="Image" />
 					<div class="details">
-						<h2>Web Developer</h2>
+						<h2 class="startTyper"></h2>
 						<a href="#" class="blue_button">My Resume</a>
 					</div>
 				</div>
@@ -114,6 +115,17 @@
 			</section>
 		</section>
 	</section>
+	<script>
+		$(function() {
+		 $(".startTyper").typed({
+		strings: ["Web Developer","Android App"],
+		typeSpeed: 100, // typing speed
+		backDelay: 100, // pause before backspacing
+		loop: true, // loop on or off (true or false)
+		loopCount: false, // number of loops, false = infinite
+	  });
+	});
+		</script>
 </body>
 
 </html>

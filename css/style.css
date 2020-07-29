@@ -364,17 +364,17 @@ br.clear {
         padding: 40px 0;
     }
     #spotlight .wrapper section.container div.image div.details h2{
+        font-size: 17px;
+    }
+    #spotlight .wrapper section.container div.menu ul li div.name h4{
         font-size: 15px;
     }
-    #spotlight .wrapper section.container div.image div.details a.blue_button{
-        font-size: 12px;
-        padding: 3px 10px;
-    }
+    
 }
 
 @media all and (max-width: 480px) {
     #spotlight .wrapper section.container div.description h1{
-        font-size: 23px;
+        font-size: 25px;
     }
 }
 
