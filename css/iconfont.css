@@ -1,19 +1,116 @@
 
 @font-face {font-family: "anticon";
-  src: url('../fonts/anticon/iconfont.eot'); /* IE9*/
-  src: url('../fonts/anticon/iconfont.eot') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/anticon/iconfont.woff') format('woff'), /* chrome, firefox */
-  url('../fonts/anticon/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../fonts/anticon/iconfont.svg') format('svg'); /* iOS 4.1- */
+  src: url('../fonts/fonticons/iconfont.eot'); 
+  src: url('../fonts/fonticons/iconfont.eot') format('embedded-opentype'), 
+  url('../fonts/fonticons/iconfont.woff') format('woff'), 
+  url('../fonts/fonticons/iconfont.ttf') format('truetype'), 
+  url('../fonts/fonticons/iconfont.svg') format('svg'); 
 }
 
 .anticon {
   font-family:"anticon" !important;
-  font-size:16px;
-  font-style:normal;
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  
+ 
+  
+  font-variant: normal;
+  text-transform: none;
+ 
+  
+  line-height: 1em;
+ 
+  
+  
+  margin-left: .2em;
+ 
+  
+  
+ 
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
 }
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fonticons/fontello.eot?97764936');
+  src: url('../fonts/fonticons/fontello.eot?97764936#iefix') format('embedded-opentype'),
+       url('../fonts/fonticons/fontello.woff2?97764936') format('woff2'),
+       url('../fonts/fonticons/fontello.woff?97764936') format('woff'),
+       url('../fonts/fonticons/fontello.ttf?97764936') format('truetype'),
+       url('../fonts/fonticons/fontello.svg?97764936#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+ 
+ .fontello {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  
+ 
+  
+  font-variant: normal;
+  text-transform: none;
+ 
+  
+  line-height: 1em;
+ 
+  
+  
+  margin-left: .2em;
+ 
+  
+  
+ 
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  
+  
+}
+ 
+.icon-target:before { content: '\e896'; } 
+.icon-facebook-circled-1:before { content: '\ead1'; } 
+.icon-linkedin-circled-1:before { content: '\ead9'; } 
+.icon-twitter-circled-1:before { content: '\eae1'; } 
+.icon-fire-2:before { content: '\edc1'; } 
+.icon-github-text-1:before { content: '\eded'; } 
+.icon-twitter:before { content: '\f099'; } 
+.icon-facebook:before { content: '\f09a'; } 
+.icon-linkedin:before { content: '\f0e1'; } 
+.icon-youtube:before { content: '\f167'; } 
+.icon-youtube-play:before { content: '\f16a'; } 
+.icon-instagram:before { content: '\f16d'; } 
+.icon-whatsapp:before { content: '\f232'; } 
+.icon-twitter-squared:before { content: '\f304'; } 
+.icon-facebook-squared:before { content: '\f308'; } 
+.icon-twitter-circled:before { content: '\f30a'; } 
+.icon-linkedin-squared:before { content: '\f30c'; } 
+.icon-facebook-circled:before { content: '\f30d'; } 
+.icon-gplus-1:before { content: '\f30f'; } 
+.icon-pinterest-1:before { content: '\f312'; } 
+.icon-linkedin-circled:before { content: '\f319'; } 
+.icon-instagram-1:before { content: '\f32d'; } 
+.icon-skype-1:before { content: '\f339'; } 
+.icon-skype-circled:before { content: '\f33a'; } 
+.icon-fire-1:before { content: '\f525'; } 
 
 .icon-stepforward:before { content: "\e600"; }
 

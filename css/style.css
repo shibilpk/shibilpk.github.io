@@ -68,7 +68,7 @@ a:hover,
 p {
     line-height: 1.6em;
     font-size: 16px;
-    font-family: "open_sanslight";
+    font-family: "open_sansregular", Arial, Helvetica, sans-serif;
 }
 .hidden {
     display: none;
@@ -111,125 +111,275 @@ br.clear {
 }
 #spotlight {
     background-color: #1a1a1a;
-    padding: 70px 0;
+    padding: 90px 0;
     color: #ffffff;
-}
-
-#spotlight > * {
-    height: 100%;
+    display: flex;
+    align-items: center;
+    /* height: 100vh; */
 }
 
 #spotlight .wrapper section.container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 40px 0;
 }
 
 #spotlight .wrapper section.container div.menu {
     background-color: #1c1e1f;
-    width: 5%;
+    width: 8%;
     margin: 40px 0;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    text-align: center;
+    
 }
 
 #spotlight .wrapper section.container div.menu ul {
-	width: 100%;
+    width: 100%;
 }
 
-#spotlight .wrapper section.container div.menu div.extra,
+#spotlight .wrapper section.container div.menu div.extra {
+    padding: 10px;
+}
 #spotlight .wrapper section.container div.menu ul li {
-	padding: 14px;
-	position: relative;
+    position: relative;
 }
-#spotlight .wrapper section.container div.menu div.extra.up{
-	background-color: #00c483;
+#spotlight .wrapper section.container div.menu ul li a {
+    padding: 14px;
+    display: block;
+    position: relative;
+    background-color: #1c1e1f;
+    z-index: 2;
+}
+#spotlight .wrapper section.container div.menu ul li a:hover {
+    background-color: #008080;
+}
+#spotlight .wrapper section.container div.menu div.extra.up:hover i,
+#spotlight .wrapper section.container div.menu div.extra:hover i,
+#spotlight .wrapper section.container div.menu ul li a:hover div.icon i {
+    color: #ffffff;
+    transform: scale(1.1);
+    transition: all 1s ease-out;
+}
+#spotlight .wrapper section.container div.menu div.extra.up {
+    background-color: #008080;
 }
 
-#spotlight .wrapper section.container div.menu div.extra.up i{
-	color: #888888;
-
+#spotlight .wrapper section.container div.menu div.extra.up i {
+    color: #888888;
 }
-#spotlight .wrapper section.container div.menu div.extra i{
-	font-size: 33px;
-	color: #00c483;
+#spotlight .wrapper section.container div.menu div.extra i {
+    font-size: 33px;
+    color: #008080;
 }
 
 #spotlight .wrapper section.container div.menu ul li div.icon {
 }
 
-#spotlight .wrapper section.container div.menu ul li div.icon img {
-	width: 100%;
+#spotlight .wrapper section.container div.menu ul li div.icon i {
+    font-size: 25px;
+    color: #888888;
 }
-
+#spotlight .wrapper section.container div.menu ul li a:hover + div.name {
+    z-index: 3;
+    background-color: #008080;
+}
 #spotlight .wrapper section.container div.menu ul li div.name {
-	position: absolute;
+    position: absolute;
     top: 0;
     left: 100%;
-    z-index: 1;
     padding: 14px;
     bottom: 0;
+    z-index: 0;
     display: flex;
     align-items: center;
+    transition: all 1s ease-out;
+    width: 100px;
+    opacity: 0.7;
 }
 
 #spotlight .wrapper section.container div.menu ul li div.name h4 {
-	
+    color: #ffffff;
+    font-size: 16px;
 }
 
 #spotlight .wrapper section.container div.image {
     position: relative;
     background-color: #1c1e1f;
-	width: 30%;
-	-webkit-box-shadow: 0 32px 84px 0 rgba(0,0,0,0.5);
-	box-shadow: 0 32px 84px 0 rgba(0,0,0,0.5);
-	height: 540px;
+    width: 30%;
+    -webkit-box-shadow: 0 32px 84px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 32px 84px 0 rgba(0, 0, 0, 0.5);
+    height: 540px;
+   
 }
-
 
 #spotlight .wrapper section.container div.image img {
     width: 100%;
     height: 100%;
+  
 }
 
 #spotlight .wrapper section.container div.image div.details {
     position: absolute;
-	bottom: 25%;
-	text-align: center;
-	width: 100%;
+    bottom: 8%;
+    text-align: center;
+    width: 100%;
 }
 
 #spotlight .wrapper section.container div.image div.details h2 {
-	font-size: 17px;
-	color: #00c483;
+    font-size: 20px;
+    color: #008080;
+    font-weight: 600;
 }
-
+#spotlight .wrapper section.container div.image div.details a.blue_button {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: #888888;
+    border: 1px solid #008080;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #008080 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
+}
+#spotlight
+    .wrapper
+    section.container
+    div.image
+    div.details
+    a.blue_button:hover {
+    background-position: left bottom;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+#spotlight .wrapper section.container div.description.mobile {
+    display: none;
+}
+#spotlight .wrapper section.container div.description.web {
+    display: block;
+}
 #spotlight .wrapper section.container div.description {
     background-color: #1c1e1f;
-    width: 65%;
-    margin: 40px 0 ;
+    width: 62%;
+    margin: 40px 0;
     padding: 50px 25px 50px 40px;
     display: flex;
     align-items: center;
 }
 
 #spotlight .wrapper section.container div.description small {
-	color: #ffffff;
+    color: #ffffff;
 }
 
 #spotlight .wrapper section.container div.description h1 {
-    color: #00c483;
+    color: #008080;
     font-size: 50px;
     margin: 30px 0;
     font-weight: 600;
 }
 
 #spotlight .wrapper section.container div.description h2 {
-	font-size: 17px;
-	color: #888888;
+    font-size: 17px;
+    color: #888888;
 }
 
-#spotlight .wrapper section.container div.description h2 br {
+@media all and (max-width: 1280px) {
+    #spotlight .wrapper section.container div.menu {
+        width: 10%;
+    }
+    #spotlight .wrapper section.container div.image {
+        width: 35%;
+    }
+    #spotlight .wrapper section.container div.description {
+        width: 50%;
+    }
+    #spotlight .wrapper section.container div.description h1 {
+        font-size: 45px;
+    }
+}
+
+@media all and (max-width: 980px) {
+    #spotlight .wrapper section.container div.description h2 {
+        font-size: 15px;
+    }
+    #spotlight{
+        padding: 75px 0;
+    }
+}
+
+@media all and (max-width: 880px) {
+    #spotlight{
+        padding: 60px 0;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #spotlight .wrapper section.container div.menu {
+        width: 15%;
+    }
+    #spotlight .wrapper section.container div.image {
+        width: 85%;
+        height: 400px;
+    }
+    #spotlight .wrapper section.container div.description {
+        width: 100%;
+        margin: 0 0 40px 0 ;
+    }
+    #spotlight .wrapper section.container div.description.mobile {
+        display: block;
+    }
+    #spotlight .wrapper section.container div.description.web {
+        display: none;
+    }
+}
+
+@media all and (max-width: 640px) {
+    #spotlight .wrapper section.container div.description {
+        
+        padding: 25px 15px 25px 20px;
+    }
+    #spotlight .wrapper section.container div.description h1{
+        margin: 20px 0;
+    }
+}
+
+@media all and (max-width: 560px) {
+
+    #spotlight .wrapper section.container div.description h1 {
+        font-size: 35px;
+    }
+    #spotlight .wrapper section.container div.menu div.extra i {
+        font-size: 20px;
+    }
+    #spotlight .wrapper section.container div.menu ul li div.icon i {
+        font-size: 20px;
+    }
+    #spotlight .wrapper section.container div.menu ul li a,#spotlight .wrapper section.container div.menu div.extra {
+        padding: 15px 5px;
+    }
+    #spotlight{
+        padding: 40px 0;
+    }
+    #spotlight .wrapper section.container div.image div.details h2{
+        font-size: 15px;
+    }
+    #spotlight .wrapper section.container div.image div.details a.blue_button{
+        font-size: 12px;
+        padding: 3px 10px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #spotlight .wrapper section.container div.description h1{
+        font-size: 23px;
+    }
+}
+
+@media all and (max-width: 360px) {
+}
+
+@media all and (max-width: 320px) {
 }
