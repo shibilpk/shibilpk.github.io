@@ -9,7 +9,7 @@ function resize() {
                 header.classList.remove("black-header");
             }
         });
-        $('#header header div.nav').innerHeight($(window).height())
+     
     });
 }
 $(document).ready(function () {
