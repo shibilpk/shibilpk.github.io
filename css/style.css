@@ -595,6 +595,10 @@ div.title_bottom h2 {
     #about section.wrapper section.container div.right {
         width: 25%;
     }
+    #about:hover section.wrapper section.container div.right div.image{
+        transform: scale(1.2);
+
+    }
 }
 
 @media all and (max-width: 640px) {
