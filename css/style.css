@@ -469,7 +469,7 @@ div.title_bottom h2 {
     section.container
     div.left
     div.button
-    form.active
+    form:hover
     input[type="email"] {
     width: 80%;
     padding: 5px 15px;
@@ -626,6 +626,24 @@ div.title_bottom h2 {
     }
     #about section.wrapper section.container div.left h1 {
         margin: 20px 0;
+    }
+    #about
+    section.wrapper
+    section.container
+    div.left
+    div.button
+    form:hover
+    input[type="email"] {
+    width: 100%;
+    padding: 5px 10px;
+}
+#about
+    section.wrapper
+    section.container
+    div.left
+    div.button
+    form{
+        width: 100%;
     }
 }
 

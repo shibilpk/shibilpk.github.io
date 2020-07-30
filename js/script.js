@@ -57,25 +57,9 @@ function resize() {
 }
 
 $(document).ready(function () {
-    $('a.blue_button.submit input').click(function (event) {
-        event.stopPropagation();
-        let type = $(this).attr('type');
-        if (type == 'button') {
-            $(this).attr("type", "submit")
-            $('#about section.wrapper section.container div.left div.button form').addClass('active')
-        }
-    })
     resize();
 });
-$(document).click(function () {
 
-    let type = $('a.blue_button.submit input').attr('type');
-    if (type == 'submit') {
-        $('a.blue_button.submit input').attr("type", "button")
-        $('#about section.wrapper section.container div.left div.button form').removeClass('active')
-    }
-
-});
 $(window).resize(function () {
     resize();
 });
