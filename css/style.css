@@ -227,6 +227,14 @@ br.clear {
     font-size: 20px;
     color: #008080;
     font-weight: 600;
+    margin-bottom: 20px;
+}
+a.blue_button.submit {
+    padding: 0px;
+}
+a.blue_button.submit input {
+    padding: 5px 15px;
+    color: #ffffff;
 }
 a.blue_button {
     padding: 5px 15px;
@@ -234,19 +242,23 @@ a.blue_button {
     color: #888888;
     border: 1px solid #008080;
     display: inline-block;
-    margin-top: 20px;
     /* border-radius: 10px; */
     background: linear-gradient(to right, #008080 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: right bottom;
     transition: all 0.5s ease-out;
     transform: skew(-20deg);
+    letter-spacing: 0.2em;
 }
 a.blue_button:hover {
     background-position: left bottom;
     color: #ffffff;
     transform: scale(1.1) skew(-20deg);
 }
+a.blue_button.submit:hover {
+    transform: scale(1) skew(-20deg);
+}
+
 #spotlight .wrapper section.container div.description.mobile {
     display: none;
 }
@@ -435,6 +447,55 @@ div.title_bottom h2 {
 }
 #about section.wrapper section.container div.left div.button {
     text-align: right;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+#about section.wrapper section.container div.left div.button form {
+    display: flex;
+    justify-content: flex-end;
+    transition: all 1s;
+}
+
+#about
+    section.wrapper
+    section.container
+    div.left
+    div.button
+    form
+    input[type="email"]:focus,
+#about
+    section.wrapper
+    section.container
+    div.left
+    div.button
+    form.active
+    input[type="email"] {
+    width: 80%;
+    padding: 5px 15px;
+}
+#about
+    section.wrapper
+    section.container
+    div.left
+    div.button
+    form{
+        width: 80%;
+    }
+#about
+    section.wrapper
+    section.container
+    div.left
+    div.button
+    form
+    input[type="email"] {
+    border: 1px solid #008080 ;
+    border-right: none;
+    transform: skew(-20deg);
+    width: 0px;
+    color: #ffffff;
+    transition: all 1s;
+    letter-spacing: 0.2em;
 }
 #about section.wrapper section.container div.right {
     width: 45%;
@@ -514,7 +575,6 @@ div.title_bottom h2 {
     #spotlight .wrapper section.container div.description {
         width: 100%;
         margin: 0 0 40px 0;
-        height: 100vh;
         display: flex;
         align-items: center;
     }
