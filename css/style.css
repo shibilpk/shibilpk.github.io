@@ -251,7 +251,7 @@ a.blue_button:hover {
     display: none;
 }
 #spotlight .wrapper section.container div.description.web {
-    display: block;
+    display: flex;
 }
 #spotlight .wrapper section.container div.description {
     background-color: #1c1e1f;
@@ -339,11 +339,10 @@ div.title_bottom h2 {
     display: flex;
     justify-content: center;
     border-radius: 10px 0;
-overflow: hidden;
-    transition: steps() 1s ;
+    overflow: hidden;
+
     padding: 25px 20px;
 }
-
 
 #skill section.wrapper section.container div.card div.logo {
     display: flex;
@@ -363,10 +362,8 @@ overflow: hidden;
     color: #008080;
     transition: all 1s;
     font-size: 30px;
-    
 }
 #skill section.wrapper section.container div.card:hover div.logo i {
-
 }
 /* #skill section.wrapper section.container div.card:hover div.logo{
     background-color: #008080;
@@ -463,6 +460,7 @@ overflow: hidden;
     #spotlight .wrapper section.container div.description {
         width: 50%;
     }
+    #about section.wrapper section.container div.left h1,
     #spotlight .wrapper section.container div.description h1 {
         font-size: 45px;
     }
@@ -475,18 +473,37 @@ overflow: hidden;
     #spotlight {
         padding: 75px 0;
     }
+    #skill section.wrapper section.container div.card {
+        width: 31.5%;
+
+        padding: 25px 10px;
+    }
+    #about section.wrapper section.container div.right div.image {
+        width: 100%;
+    }
 }
 
 @media all and (max-width: 880px) {
+    #skill,
+    #about,
     #spotlight {
         padding: 60px 0;
+    }
+    #skill section.wrapper section.container div.card {
+        width: 45%;
+
+        padding: 25px 30px;
+    }
+    #about section.wrapper section.container div.left h1 {
+        font-size: 32px;
     }
 }
 
 @media all and (max-width: 768px) {
-    #spotlight{
+    #spotlight {
         height: auto;
     }
+
     #spotlight .wrapper section.container div.menu {
         width: 15%;
     }
@@ -498,25 +515,65 @@ overflow: hidden;
         width: 100%;
         margin: 0 0 40px 0;
         height: 100vh;
+        display: flex;
+        align-items: center;
     }
     #spotlight .wrapper section.container div.description.mobile {
-        display: block;
+        display: flex;
     }
     #spotlight .wrapper section.container div.description.web {
         display: none;
     }
+    #skill section.wrapper section.container div.card {
+        width: 48%;
+
+        padding: 25px 30px;
+    }
+    #about section.wrapper section.container div.left {
+        width: 75%;
+    }
+    #about section.wrapper section.container div.right {
+        width: 25%;
+    }
 }
 
 @media all and (max-width: 640px) {
+    #skill,
+    #about {
+        padding: 50px 0;
+    }
     #spotlight .wrapper section.container div.description {
         padding: 70px 15px 70px 20px;
     }
     #spotlight .wrapper section.container div.description h1 {
         margin: 20px 0;
     }
+    #skill section.wrapper section.container div.card {
+        padding: 25px 20px;
+    }
+    div.title_bottom h2 {
+        font-size: 22px;
+    }
+    #skill section.wrapper section.head {
+        margin-bottom: 25px;
+    }
+    #about section.wrapper section.container div.left h1 {
+        font-size: 20px;
+    }
+    #about section.wrapper section.container div.left h4,
+    #about section.wrapper section.container div.left p {
+        font-size: 14px;
+    }
+    #about section.wrapper section.container div.left h1 {
+        margin: 20px 0;
+    }
 }
 
 @media all and (max-width: 560px) {
+    #skill,
+    #about {
+        padding: 40px 0;
+    }
     #spotlight .wrapper section.container div.description h1 {
         font-size: 35px;
     }
@@ -538,6 +595,24 @@ overflow: hidden;
     }
     #spotlight .wrapper section.container div.menu ul li div.name h4 {
         font-size: 15px;
+    }
+    #skill section.wrapper section.container div.card {
+        width: 100%;
+        padding: 0 20px;
+    }
+    #skill section.wrapper section.container div.card:nth-child(2n) {
+        border-bottom: 1px solid #999999;
+        border-top: 1px solid #999999;
+        padding: 15px 20px;
+        border-radius: 0px;
+    }
+    #about section.wrapper section.container div.left h4,
+    #about section.wrapper section.container div.left p {
+        font-size: 12px;
+    }
+    p,
+    a {
+        font-size: 13px !important;
     }
 }
 
