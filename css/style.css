@@ -229,6 +229,7 @@ br.clear {
     font-weight: 600;
     margin-bottom: 20px;
 }
+
 a.blue_button.submit {
     padding: 0px;
 }
@@ -248,7 +249,7 @@ a.blue_button {
     background-position: right bottom;
     transition: all 0.5s ease-out;
     transform: skew(-20deg);
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
 }
 a.blue_button:hover {
     background-position: left bottom;
@@ -258,7 +259,110 @@ a.blue_button:hover {
 a.blue_button.submit:hover {
     transform: scale(1) skew(-20deg);
 }
+.chat {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+.chat .btn_wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    background-color: #e3e7e7;
+    border-radius: 50px;
+    padding: 0 10px;
+    will-change: transform;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #008080;
+}
 
+.chat .btn_wrap:hover {
+    /* transition-delay: .4s; */
+    /* -webkit-transform: scale(1.1);
+    transform: scale(1.1) */
+}
+
+.chat span {
+    position: absolute;
+    z-index: 99;
+    width: 150px;
+    height: 35px;
+    border-radius: 50px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 32px;
+    color: #888888;
+    background-color: #1c1e1f;
+    padding: 0 10px;
+    -webkit-transition: all 1.2s ease;
+    transition: all 1.2s ease;
+}
+
+.chat .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 150px;
+    height: 35px;
+    border-radius: 50px;
+}
+
+.chat .container i:nth-of-type(1) {
+    -webkit-transition-delay: 1.1s;
+    transition-delay: 1.1s;
+}
+
+.chat .container i:nth-of-type(2) {
+    -webkit-transition-delay: 0.9s;
+    transition-delay: 0.9s;
+}
+
+.chat .container i:nth-of-type(3) {
+    -webkit-transition-delay: 0.7s;
+    transition-delay: 0.7s;
+}
+
+.chat .container i:nth-of-type(4) {
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.chat .btn_wrap:hover span {
+    -webkit-transition-delay: 0.25s;
+    transition-delay: 0.25s;
+    -webkit-transform: translateX(-280px);
+    transform: translateX(-280px);
+}
+
+.chat .btn_wrap:hover i {
+    opacity: 1;
+
+    font-size: 18px;
+}
+.chat .btn_wrap a:hover i {
+    color: #008080;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
 #spotlight .wrapper section.container div.description.mobile {
     display: none;
 }
@@ -474,14 +578,9 @@ div.title_bottom h2 {
     width: 80%;
     padding: 5px 15px;
 }
-#about
-    section.wrapper
-    section.container
-    div.left
-    div.button
-    form{
-        width: 80%;
-    }
+#about section.wrapper section.container div.left div.button form {
+    width: 80%;
+}
 #about
     section.wrapper
     section.container
@@ -489,7 +588,7 @@ div.title_bottom h2 {
     div.button
     form
     input[type="email"] {
-    border: 1px solid #008080 ;
+    border: 1px solid #008080;
     border-right: none;
     transform: skew(-20deg);
     width: 0px;
@@ -511,6 +610,7 @@ div.title_bottom h2 {
     transition: all 2s;
     background-repeat: no-repeat;
 }
+
 @media all and (max-width: 1280px) {
     #spotlight .wrapper section.container div.menu {
         width: 10%;
@@ -551,7 +651,7 @@ div.title_bottom h2 {
         padding: 60px 0;
     }
     #skill section.wrapper section.container div.card {
-        width: 45%;
+        width: 48%;
 
         padding: 25px 30px;
     }
@@ -595,9 +695,8 @@ div.title_bottom h2 {
     #about section.wrapper section.container div.right {
         width: 25%;
     }
-    #about:hover section.wrapper section.container div.right div.image{
+    #about:hover section.wrapper section.container div.right div.image {
         transform: scale(1.2);
-
     }
 }
 
@@ -632,21 +731,16 @@ div.title_bottom h2 {
         margin: 20px 0;
     }
     #about
-    section.wrapper
-    section.container
-    div.left
-    div.button
-    form:hover
-    input[type="email"] {
-    width: 100%;
-    padding: 5px 10px;
-}
-#about
-    section.wrapper
-    section.container
-    div.left
-    div.button
-    form{
+        section.wrapper
+        section.container
+        div.left
+        div.button
+        form:hover
+        input[type="email"] {
+        width: 100%;
+        padding: 5px 10px;
+    }
+    #about section.wrapper section.container div.left div.button form {
         width: 100%;
     }
 }

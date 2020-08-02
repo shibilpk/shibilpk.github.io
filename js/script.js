@@ -10,17 +10,17 @@ function resize() {
                 (100 * parseFloat($(card).css("width"))) /
                 parseFloat($(card).parent().css("width"));
             if (width) {
-                width = parseFloat(width).toPrecision(2);
-                // console.log(width, "wid");
+                width = parseFloat(width).toFixed(2);
+               console.log(width, "wid");
                 let item = parseInt(100 / width);
-                // console.log(item, "item");
+               console.log(item, "item");
                 if (item != 1) {
-                    marge_width = (100 - width * item) / (item - 1);
+                    marge_width = ((100 - width * item) / (item - 1)).toFixed(2);
                     $(card).parent().css({
                         "justify-content": "initial",
                     });
                 } else if ((item = 1)) {
-                    marge_width = 100 - width * item;
+                    marge_width = (100 - width * item.toFixed(2));
                     $(card).parent().css({
                         "justify-content": "center",
                     });
@@ -38,14 +38,14 @@ function resize() {
                         "margin-top": 0,
                     });
                 }
-                // console.log(marge_width);
+               console.log(marge_width);
                 let no_margin_left_child = item + "n" + "-" + (item - 1);
-                // console.log(no_margin_left_child);
+               console.log(no_margin_left_child);
                 $(`${card}:nth-child(${no_margin_left_child})`).css({
                     "margin-left": 0,
                 });
                 let no_margin_top_child = "n" + "+" + (item + 1);
-                // console.log(no_margin_top_child);
+               console.log(no_margin_top_child);
                 $(`${card}:nth-child(${no_margin_top_child})`).css({
                     "margin-top": marge_width,
                 });
