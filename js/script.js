@@ -54,34 +54,6 @@ function resize() {
     }
     autoMargin();
 
-    (function () {
-		var scroll = new LocomotiveScroll(
-			{
-				el: document.querySelector('#js-scroll'),
-                smooth: true,
-                smoothMobile:true,
-				getSpeed: true,
-				getDirection: true,
-                useKeyboard: true,
-                multiplier:1,
-                lerp	:.1,
-                
-			}
-        );
-        scroll.on("call", function (t, e, i) {
-            if ("enter" === e){
-                i.el.classList.add(t)
-                
-            }
-            else if ("exit" === e){
-                i.el.classList.remove(t)
-                
-            }
-            
-        })
-    
-	})();
-
 }
 
 $(document).ready(function () {
@@ -108,6 +80,22 @@ $(document).ready(function () {
 		    }
 		}
     });
+    var wow = new WOW(
+        {
+          boxClass:     'wow',      // animated element css class (default is wow)
+          animateClass: 'animated', // animation css class (default is animated)
+          offset:       0,          // distance to the element when triggering the animation (default is 0)
+          mobile:       true,       // trigger animations on mobile devices (default is true)
+          live:         true,       // act on asynchronously loaded content (default is true)
+          callback:     function(box) {
+            // the callback is fired every time an animation is started
+            // the argument that is passed in is the DOM node being animated
+          },
+          scrollContainer: null,    // optional scroll container selector, otherwise use window,
+          resetAnimation: true,     // reset animation on end (default is true)
+        }
+      );
+      wow.init();
     resize();
 });
 

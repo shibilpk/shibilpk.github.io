@@ -40,7 +40,7 @@ body {
     font-family: "open_sansregular", Arial, Helvetica, sans-serif;
     font-size: 17px;
     color: #333;
-    overflow-y: hidden;
+    overflow-x: hidden;
     min-width: 320px;
 }
 input,
@@ -109,16 +109,15 @@ br.clear {
     font-weight: normal;
     font-style: normal;
 }
-[data-scroll-container]{
+[data-scroll-container] {
     min-height: 100vh;
     overflow: hidden;
     outline: none;
-position: relative;
+    position: relative;
 }
-[data-scroll-section]{
+[data-scroll-section] {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
-    
 }
 .c-scrollbar {
     width: 10px;
@@ -127,8 +126,8 @@ position: relative;
     top: 0;
     height: 100vh;
     transform-origin: center right;
-    transform: scaleX(.5);
-    transition: transform .2s linear;
+    transform: scaleX(0.5);
+    transition: transform 0.2s linear;
 }
 .c-scrollbar_thumb {
     background-color: #008080;
@@ -199,7 +198,6 @@ position: relative;
     font-size: 33px;
     color: #008080;
 }
-
 
 #spotlight .wrapper section.container div.menu ul li div.icon i {
     font-size: 25px;
@@ -541,7 +539,7 @@ div.title_bottom h2 {
 }
 #github {
     padding: 70px 0;
-    background-color: #1B1B1B;
+    background-color: #1b1b1b;
 }
 
 #github section.wrapper {
@@ -565,20 +563,15 @@ div.title_bottom h2 {
 #github section.wrapper section.container ul li {
     width: 48%;
 }
-#github section.wrapper section.container ul li:nth-child(2n-1) div.main{
+#github section.wrapper section.container ul li:nth-child(2n-1) div.main {
     margin-left: auto;
 }
-#github section.wrapper section.container ul li:nth-child(2n) div.main{
+#github section.wrapper section.container ul li:nth-child(2n) div.main {
     margin-right: auto;
 }
-#github
-    section.wrapper
-    section.container
-    ul
-    li
-    div.main{
-        width: 50%;
-    }
+#github section.wrapper section.container ul li div.main {
+    width: 50%;
+}
 #github
     section.wrapper
     section.container
@@ -610,11 +603,11 @@ div.title_bottom h2 {
     div.buttonHolder
     div.vButtonFlipper
     a.btn {
-        -webkit-box-shadow: inset 0px 0px 23px 1px rgba(0,128,128,1);
-        -moz-box-shadow: inset 0px 0px 23px 1px rgba(0,128,128,1);
-        box-shadow: inset 0px 0px 23px 1px rgba(0,128,128,1);
-    ;}
-        
+    -webkit-box-shadow: inset 0px 0px 23px 1px rgba(0, 128, 128, 1);
+    -moz-box-shadow: inset 0px 0px 23px 1px rgba(0, 128, 128, 1);
+    box-shadow: inset 0px 0px 23px 1px rgba(0, 128, 128, 1);
+}
+
 #github
     section.wrapper
     section.container
@@ -625,14 +618,13 @@ div.title_bottom h2 {
     div.buttonHolder
     div.vButtonFlipper
     a.btn {
-        -webkit-box-shadow:  0px 0px 6px 2px rgba(0,128,128,1);
--moz-box-shadow:  0px 0px 6px 2px rgba(0,128,128,1);
-box-shadow:  0px 0px 6px 2px rgba(0,128,128,1);
+    -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 128, 128, 1);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(0, 128, 128, 1);
+    box-shadow: 0px 0px 6px 2px rgba(0, 128, 128, 1);
 
-        
-text-transform: uppercase;
-font-size: 15px;
-    }
+    text-transform: uppercase;
+    font-size: 15px;
+}
 #github
     section.wrapper
     section.container
@@ -644,8 +636,7 @@ font-size: 15px;
     div.vButtonFlipper
     a.btn
     div.image {
-  
-    height:20px;
+    height: 20px;
     width: 20px;
     margin: 0 auto;
 }
@@ -661,11 +652,11 @@ font-size: 15px;
     a.btn
     div.image
     img {
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 100%;
 }
 /* Vertical Button Flip animation*/
-.buttonHolder{
+.buttonHolder {
     width: 100%;
     height: 40px;
     position: relative;
@@ -687,11 +678,11 @@ font-size: 15px;
 }
 .buttonHolder:hover .vButtonFlipper {
     position: absolute;
-        width: 100%;
-  -webkit-transform: rotateX( -180deg ) scale(1.05);
-     -moz-transform: rotateX( -180deg ) scale(1.05);
-       -o-transform: rotateX( -180deg ) scale(1.05);
-          transform: rotateX( -180deg ) scale(1.05);
+    width: 100%;
+    -webkit-transform: rotateX(-180deg) scale(1.05);
+    -moz-transform: rotateX(-180deg) scale(1.05);
+    -o-transform: rotateX(-180deg) scale(1.05);
+    transform: rotateX(-180deg) scale(1.05);
 }
 .vButtonFlipper a {
     -webkit-backface-visibility: hidden;
@@ -715,23 +706,21 @@ font-size: 15px;
     justify-content: center;
     color: #ffffff;
     border-radius: 30px;
-
-
 }
 .vButtonFlipper .button2 {
-  -webkit-transform: rotateX( 180deg );
-     -moz-transform: rotateX( 180deg );
-       -o-transform: rotateX( 180deg );
-          transform: rotateX( 180deg );
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
 }
-#clients div.title_top h3{
+#clients div.title_top h3 {
     color: #888888;
 }
-#clients{
+#clients {
     padding: 30px 0;
     background-color: #ececee;
 }
-#clients section.head{
+#clients section.head {
     margin-bottom: 10px;
 }
 #clients .client {
@@ -739,7 +728,7 @@ font-size: 15px;
     width: 100px;
     overflow: hidden;
 }
-#clients .client img{
+#clients .client img {
     width: 100%;
 }
 
@@ -849,13 +838,12 @@ footer::before {
     padding-top: 30px;
     border-top: 1px solid #e3e7e7;
 }
-footer{
-    background-color: #1B1B1B;
+footer {
+    background-color: #1b1b1b;
     padding-bottom: 30px;
     text-align: center;
-    
 }
-footer p{
+footer p {
     font-size: 15px;
     color: #e3e7e7;
 }
@@ -906,7 +894,7 @@ footer p{
     #about section.wrapper section.container div.left h1 {
         font-size: 32px;
     }
-    #github section.wrapper section.container ul li div.main{
+    #github section.wrapper section.container ul li div.main {
         width: 100%;
     }
 }
@@ -1036,7 +1024,7 @@ footer p{
     #about section.wrapper section.container div.left p {
         font-size: 12px;
     }
-    #github section.wrapper section.container ul li{
+    #github section.wrapper section.container ul li {
         width: 100%;
     }
     p,
