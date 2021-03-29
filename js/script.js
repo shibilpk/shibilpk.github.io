@@ -113,7 +113,14 @@ $(document).ready(function () {
             $(this).removeClass('value')
 
         }
-    })
+    });
+    $(".container-stick").click(function() {
+        $(".stick").toggleClass(function () {
+            return $(this).is('.open, .close') ? 
+            'open close' : 'open';
+        });
+    });
+
 });
 
 $(window).resize(function () {
