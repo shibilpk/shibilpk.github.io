@@ -156,21 +156,19 @@
 
             totalWorkHours = totalWorkHours + restMinutes / 60;
 
-            if (currentWorkedHour < 0 || currentWorkedHour > 23 || currentWorkedMinute < 0 || currentWorkedMinute > 59 || restMinutes < 0 || restMinutes > 59) {
-                $("#result").text("Invalid input. Please enter valid hour (0-23) and minute (0-59).");
-                return;
-            }
-
-            if (totalWorkHours < (currentWorkedHour + currentWorkedMinute / 60)) {
-                $("#result").text("Your work is done. You can leave now.");
-                return;
-            }
-
             var currentWorkedTime = pad(currentWorkedHour, 2) + ":" + pad(currentWorkedMinute, 2);
 
-            var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
-            $("#result").text("You can leave at: " + leaveTime);
+            if (currentWorkedHour < 0 || currentWorkedHour > 23 || currentWorkedMinute < 0 || currentWorkedMinute > 59 || restMinutes < 0 || restMinutes > 59) {
+                $("#result").text("Invalid input. Please enter valid hour (0-23) and minute (0-59).");
 
+            }
+            else if (totalWorkHours < (currentWorkedHour + currentWorkedMinute / 60)) {
+                var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
+                $("#result").text("Your work is already is done at: " + leaveTime);
+            } else {
+                var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
+                $("#result").text("You can leave at: " + leaveTime);
+            }
             // Get the current date
             var currentDate = new Date();
 
@@ -193,6 +191,8 @@
 
             getGifUrl(String(weekdayIndex))
             openModal();
+
+
             return false;
         }
 
