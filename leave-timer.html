@@ -9,26 +9,41 @@
 </head>
 
 <body>
-
     <div class="card">
         <div class="card-content">
-            <h2>Leave Time Calculator</h2>
-            <div class="form-group">
-                <label for="current-worked-hour">Current Worked Hour (0-23):</label>
-                <input type="number" id="current-worked-hour" min="0" max="23" required>
-            </div>
-            <div class="form-group">
-                <label for="current-worked-minute">Current Worked Minute (0-59):</label>
-                <input type="number" id="current-worked-minute" min="0" max="59" required>
-            </div>
-            <div class="form-group">
-                <label for="total-work-hours">Total Work Hours:</label>
-                <input type="number" id="total-work-hours" min="1" value="8" step="any" required>
-            </div>
-            <button id="calculate">Calculate</button>
-            <div id="result"></div>
+            <form onsubmit="return doWork()">
+                <h2>Leave Time Calculator</h2>
+                <div class="form-group">
+                    <label for="current-worked-hour">Current Worked Hour (0-23):</label>
+                    <input type="number" id="current-worked-hour" min="0" max="23" required>
+                </div>
+                <div class="form-group">
+                    <label for="current-worked-minute">Current Worked Minute (0-59):</label>
+                    <input type="number" id="current-worked-minute" min="0" max="59" required>
+                </div>
+                <div class="form-group">
+                    <label for="total-work-hours">Total Work Hours:</label>
+                    <input type="number" id="total-work-hours" min="1" value="8" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="rest-minutes">Rest Minutes:</label>
+                    <input type="number" id="rest-minutes" min="0" value="0" step="any" required>
+                </div>
+                <button type="submit">Calculate</button>
+            </form>
         </div>
     </div>
+
+    <div class="overlay"></div>
+
+    <div class="modal">
+        <img id="result-img" src="" alt="Placeholder Image">
+        <div id="result"></div>
+        <p id="result-message"></p>
+        <button id="closeModal">Close</button>
+    </div>
+
+
 
     <style>
         body {
@@ -92,29 +107,102 @@
                 width: 80%;
             }
         }
+
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* semi-transparent black */
+            display: none;
+            /* hide by default */
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            /* higher than overlay */
+            display: none;
+            /* hide by default */
+            text-align: center;
+        }
+
+        /* Image in the modal */
+        .modal img {
+            height: 200px;
+            margin-bottom: 20px;
+        }
     </style>
 
     <script>
+        function doWork() {
+            var currentWorkedHour = parseInt($("#current-worked-hour").val());
+            var currentWorkedMinute = parseInt($("#current-worked-minute").val());
+            var totalWorkHours = parseFloat($("#total-work-hours").val() || 0);
+            var restMinutes = parseFloat($("#rest-minutes").val() || 0);
+
+            totalWorkHours = totalWorkHours + restMinutes / 60;
+
+            if (currentWorkedHour < 0 || currentWorkedHour > 23 || currentWorkedMinute < 0 || currentWorkedMinute > 59 || restMinutes < 0 || restMinutes > 59) {
+                $("#result").text("Invalid input. Please enter valid hour (0-23) and minute (0-59).");
+                return;
+            }
+
+            if (totalWorkHours < (currentWorkedHour + currentWorkedMinute / 60)) {
+                $("#result").text("Your work is done. You can leave now.");
+                return;
+            }
+
+            var currentWorkedTime = pad(currentWorkedHour, 2) + ":" + pad(currentWorkedMinute, 2);
+
+            var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
+            $("#result").text("You can leave at: " + leaveTime);
+
+            // Get the current date
+            var currentDate = new Date();
+
+            // Get the weekday index (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+            var weekdayIndex = currentDate.getDay();
+
+
+            var img_message = {
+                "0": { "mo_msg": "It's Sunday, enjoy your holiday!" },
+                "1": { "mo_msg": "It's Monday, start the week with enthusiasm!" },
+                "2": { "mo_msg": "It's Tuesday, stay focused and consistent!" },
+                "3": { "mo_msg": "It's Wednesday, keep pushing forward!" },
+                "4": { "mo_msg": "It's Thursday, finish strong!" },
+                "5": { "mo_msg": "It's Friday, congratulations on a productive week!" },
+                "6": { "mo_msg": "It's Saturday, enjoy your holiday!" }
+            };
+
+            $("#result-message").text(img_message[String(weekdayIndex)]['mo_msg']);
+            $("#result-img").hide();
+
+            getGifUrl(String(weekdayIndex))
+            openModal();
+            return false;
+        }
+
+        function openModal() {
+            $(".overlay, .modal").fadeIn();
+        }
+
         $(document).ready(function () {
-            $("#calculate").click(function () {
-                var currentWorkedHour = parseInt($("#current-worked-hour").val());
-                var currentWorkedMinute = parseInt($("#current-worked-minute").val());
-                var totalWorkHours = parseFloat($("#total-work-hours").val());
-
-                if (currentWorkedHour < 0 || currentWorkedHour > 23 || currentWorkedMinute < 0 || currentWorkedMinute > 59) {
-                    $("#result").text("Invalid input. Please enter valid hour (0-23) and minute (0-59).");
-                    return;
-                }
-
-                if (totalWorkHours < (currentWorkedHour + currentWorkedMinute / 60)) {
-                    $("#result").text("Your work is done. You can leave now.");
-                    return;
-                }
-
-                var currentWorkedTime = pad(currentWorkedHour, 2) + ":" + pad(currentWorkedMinute, 2);
-
-                var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
-                $("#result").text("You can leave at: " + leaveTime);
+            // Close modal
+            $("#closeModal, .overlay").click(function () {
+                $(".overlay, .modal").fadeOut();
             });
         });
 
@@ -142,6 +230,45 @@
             while (s.length < size) s = "0" + s;
             return s;
         }
+
+
+        function getGifUrl(day) {
+
+            day_name = {
+                "0": "Sunday",
+                "1": "Monday",
+                "2": "Tuesday",
+                "3": "Wednesday",
+                "4": "Thursday",
+                "5": "Friday",
+                "6": "Saturday"
+            }
+
+            var apiURL = `https://g.tenor.com/v1/search?q=${day_name[day]}+fun+comedy&key=LIVDSRZULELA&limit=8`;
+
+            // Make an AJAX request to fetch GIFs from the API
+            $.ajax({
+                url: apiURL,
+                method: "GET",
+                async: true,
+                success: function (response) {
+                    // Parse the response and extract GIF URLs
+                    var gifs = response.results;
+                    // Generate a random index to select a random GIF
+                    var randomIndex = Math.floor(Math.random() * gifs.length);
+                    var randomGIF = gifs[randomIndex];
+
+                    // Extract the URL of the random GIF
+                    var randomGIFUrl = randomGIF.media[0].gif.url;
+                    $("#result-img").attr("src", randomGIFUrl);
+                    $("#result-img").show();
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching GIFs:", error);
+                }
+            });
+        }
+
     </script>
 
 </body>
