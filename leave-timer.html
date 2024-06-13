@@ -137,6 +137,7 @@
             display: none;
             /* hide by default */
             text-align: center;
+            min-width: 500px;
         }
 
         /* Image in the modal */
@@ -188,7 +189,7 @@
             };
 
             $("#result-message").text(img_message[String(weekdayIndex)]['mo_msg']);
-            $("#result-img").hide();
+            $("#result-img").removeAttr("src").hide();
 
             getGifUrl(String(weekdayIndex))
             openModal();
