@@ -151,16 +151,16 @@
         function doWork() {
             var currentWorkedHour = parseInt($("#current-worked-hour").val());
             var currentWorkedMinute = parseInt($("#current-worked-minute").val());
-            var totalWorkHours = parseFloat($("#total-work-hours").val() || 0);
+            var totalWorkHours = parseFloat($("#total-work-hours").val() || 8);
             var restMinutes = parseFloat($("#rest-minutes").val() || 0);
 
             totalWorkHours = totalWorkHours + restMinutes / 60;
 
             var currentWorkedTime = pad(currentWorkedHour, 2) + ":" + pad(currentWorkedMinute, 2);
 
-            if (currentWorkedHour < 0 || currentWorkedHour > 23 || currentWorkedMinute < 0 || currentWorkedMinute > 59 || restMinutes < 0 || restMinutes > 59) {
-                $("#result").text("Invalid input. Please enter valid hour (0-23) and minute (0-59).");
-
+            if (currentWorkedHour < 0 || currentWorkedHour > 23 || currentWorkedMinute < 0 || currentWorkedMinute > 59 || restMinutes < 0) {
+                alert("Invalid input. Please enter valid hour (0-23) and minute (0-59).");
+                return false;
             }
             else if (totalWorkHours < (currentWorkedHour + currentWorkedMinute / 60)) {
                 var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
