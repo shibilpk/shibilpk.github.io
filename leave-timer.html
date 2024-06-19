@@ -149,6 +149,7 @@
 
     <script>
         function doWork() {
+            let work_done = false;
             var currentWorkedHour = parseInt($("#current-worked-hour").val());
             var currentWorkedMinute = parseInt($("#current-worked-minute").val());
             var totalWorkHours = parseFloat($("#total-work-hours").val() || 8);
@@ -165,6 +166,7 @@
             else if (totalWorkHours < (currentWorkedHour + currentWorkedMinute / 60)) {
                 var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
                 $("#result").text("Your work is already is done at: " + leaveTime);
+                work_done = true;
             } else {
                 var leaveTime = calculateLeaveTime(currentWorkedTime, totalWorkHours);
                 $("#result").text("You can leave at: " + leaveTime);
@@ -189,9 +191,8 @@
             $("#result-message").text(img_message[String(weekdayIndex)]['mo_msg']);
             $("#result-img").removeAttr("src").hide();
 
-            getGifUrl(String(weekdayIndex))
+            getGifUrl(String(weekdayIndex),work_done)
             openModal();
-
 
             return false;
         }
@@ -233,7 +234,7 @@
         }
 
 
-        function getGifUrl(day) {
+        function getGifUrl(day,work_done=false) {
 
             day_name = {
                 "0": "Sunday",
@@ -244,8 +245,11 @@
                 "5": "Friday",
                 "6": "Saturday"
             }
-
             var apiURL = `https://g.tenor.com/v1/search?q=${day_name[day]}+fun+comedy&key=LIVDSRZULELA&limit=30&media_filter=minimal&ar_range=standard`;
+
+            if (work_done == true){
+                apiURL = `https://g.tenor.com/v1/search?q=office+work+done&key=LIVDSRZULELA&limit=30&media_filter=minimal&ar_range=standard`;
+            }
 
             // Make an AJAX request to fetch GIFs from the API
             $.ajax({
